@@ -16,7 +16,7 @@ void merge(int array[],int L,int R){
 	}
 	i = j = k = 0;
 	while(i < left_size && j < right_size){
-		if(left[i] < right[i]){
+		if(left[i] < right[j]){
 	   		array[k] = left[i];
 	   		i++;
 	   		k++;
@@ -33,17 +33,11 @@ void merge(int array[],int L,int R){
    		k++;
 	}
 	while(j < right_size){
-  		array[k] = left[j];
+  		array[k] = right[j];
    		j++;
    		k++;
 	}
 
-	for(j=0;j<right_size;j++){
-	printf("%d\n",right[j]);
-	}
-	for(j=0;j<left_size;j++){
-	printf("%d\n",left[j]);
-	}
 
 }
 
@@ -51,7 +45,7 @@ int main(){
 	int i;
 	int arr[] = {1,3,5,7,13,5,7,9,10};
 	merge(arr,0,8);
-	for(i=0;i<8;i++){
+	for(i=0;i<=8;i++){
 		printf("%d\n",arr[i]);
 	}
 	return 0;
