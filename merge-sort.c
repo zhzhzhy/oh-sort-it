@@ -41,10 +41,22 @@ void merge(int array[],int L,int R){
 
 }
 
+void Mergesort(int array[],int L,int R){
+	int M = (L + R) / 2;
+	if(L != R){
+		Mergesort(array,L,M);
+		Mergesort(array,M+1,R);
+		merge(array,L,R);
+	}
+	else{
+	return;
+	}
+}
 int main(){
 	int i;
 	int arr[] = {1,3,5,7,13,5,7,9,10};
-	merge(arr,0,8);
+//	merge(arr,0,8);
+	Mergesort(arr,0,8);
 	for(i=0;i<=8;i++){
 		printf("%d\n",arr[i]);
 	}
