@@ -19,15 +19,31 @@ void heapify(int *tree,int n,int head){
 	}
 	if(max != head){
 		swap(tree,head,max);
-		heapify(tree,n,max);	
+		heapify(tree,n,head);
 	}
 
+}
+
+void build_heap(int *tree,int n,int head){
+	for(int i = (n-1)/2;i >= 0;i--){
+		heapify(tree,n,i);	
+	     }
+}
+
+void heapsort(int *tree,int n){
+	int i = 0;
+	do{
+		build_heap(tree,n-i,0);	
+		swap(tree,n-i-1,0);
+		i++;
+	}
+	while(i < n);
 }
 
 int main(){
 	int array[] = {1,6,5,7,6,566,7,6,5,67,6,7,89,766};
 	int len = sizeof(array)/sizeof(*array);
-	heapify(array,len,0);
+	heapsort(array,len);
 	for(int i = 0;i < len;i++){
 		printf("%d\n",array[i]);	
 	}
